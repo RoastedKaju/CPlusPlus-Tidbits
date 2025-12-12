@@ -10,7 +10,6 @@
 /// On Match return 0
 /// On No match return -1
 /// </summary>
-
 namespace pattern_match
 {
 	int arr[8] = { 3, 5, 1, 2, 8, 1, 2, 3 };

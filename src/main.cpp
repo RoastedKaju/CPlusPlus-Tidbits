@@ -19,5 +19,9 @@ int main()
 
 	//pattern_match::FindPattern(pattern_match::arr, 8, pattern_match::pattern, 2);
 
+	//reverse_string::ReverseString(reverse_string::str);
+
+	//std::cout << reverse_string::str << std::endl;
+
 	return EXIT_FAILURE;
 }
