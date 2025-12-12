@@ -12,4 +12,5 @@ add_executable(${PROJECT_NAME}
     "src/beeper.h"
     "src/increment_overload.h"
     "src/pattern_match.h"
-    "src/reverse_string.h")
+    "src/reverse_string.h"
+    "src/remove_spaces.h")
