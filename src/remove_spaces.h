@@ -1,6 +1,10 @@
 #ifndef REMOVE_SPACES_H
 #define REMOVE_SPACES_H
 
+/// <summary>
+/// Using only pointer arithmetic remove all spaces from a string
+/// Search pointer read, write method to solve this.
+/// </summary>
 namespace remove_spaces
 {
 	char str[] = "  h e l lo  w or ld  ";

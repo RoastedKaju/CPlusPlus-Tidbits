@@ -5,6 +5,7 @@
 #include "pattern_match.h"
 #include "reverse_string.h"
 #include "remove_spaces.h"
+#include "implement_memmove.h"
 
 int main()
 {
@@ -24,7 +25,15 @@ int main()
 
 	//std::cout << reverse_string::str << std::endl;
 
-	remove_spaces::RemoveSpaces(remove_spaces::str);
+	//remove_spaces::RemoveSpaces(remove_spaces::str);
+
+	//std::cout << (unsigned char*)impl_memmove::my_memmove(impl_memmove::buffer + 1, impl_memmove::buffer, 4) << std::endl;
+
+	impl_memmove::my_memmove(impl_memmove::buffer, impl_memmove::buffer + 1, 4);
+	std::cout << (unsigned char*)impl_memmove::buffer << std::endl;
+
+	//impl_memmove::my_memmove(impl_memmove::new_dest, impl_memmove::buffer + 2, 3);
+	//std::cout << (unsigned char*)impl_memmove::new_dest << std::endl;
 
 	return EXIT_SUCCESS;
 }
