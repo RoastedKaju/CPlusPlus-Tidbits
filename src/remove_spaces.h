@@ -7,7 +7,22 @@ namespace remove_spaces
 
 	void RemoveSpaces(char* s)
 	{
+        char* read = s;
+        char* write = s;
 
+        while (*read != '\0')
+        {
+            if (*read != ' ')
+            {
+                *write = *read;
+                write++;
+            }
+            read++;
+        }
+
+        *write = '\0';
+
+		std::cout << s << std::endl;
 	}
 }
 

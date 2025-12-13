@@ -4,6 +4,7 @@
 #include "increment_overload.h"
 #include "pattern_match.h"
 #include "reverse_string.h"
+#include "remove_spaces.h"
 
 int main()
 {
@@ -23,5 +24,7 @@ int main()
 
 	//std::cout << reverse_string::str << std::endl;
 
-	return EXIT_FAILURE;
+	remove_spaces::RemoveSpaces(remove_spaces::str);
+
+	return EXIT_SUCCESS;
 }
