@@ -14,4 +14,5 @@ add_executable(${PROJECT_NAME}
     "src/pattern_match.h"
     "src/reverse_string.h"
     "src/remove_spaces.h"
-    "src/implement_memmove.h")
+    "src/implement_memmove.h"
+    "src/find_unique.h")
