@@ -7,6 +7,7 @@
 #include "remove_spaces.h"
 #include "implement_memmove.h"
 #include "find_unique.h"
+#include "detect_arbitrage.h"
 
 int main()
 {
@@ -37,6 +38,8 @@ int main()
 	//std::cout << (unsigned char*)impl_memmove::new_dest << std::endl;
 
 	//std::cout << find_unique::FindUnique(find_unique::my_list, 5) << std::endl;
+
+	//arbitrage::HasPositivePnL(arbitrage::arr, 5);
 
 	return EXIT_SUCCESS;
 }
