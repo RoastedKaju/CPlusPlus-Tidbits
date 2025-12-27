@@ -16,4 +16,5 @@ add_executable(${PROJECT_NAME}
     "src/remove_spaces.h"
     "src/implement_memmove.h"
     "src/find_unique.h"
-    "src/detect_arbitrage.h")
+    "src/detect_arbitrage.h"
+    "src/max_drawdown.h")

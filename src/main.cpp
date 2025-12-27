@@ -8,6 +8,7 @@
 #include "implement_memmove.h"
 #include "find_unique.h"
 #include "detect_arbitrage.h"
+#include "max_drawdown.h"
 
 int main()
 {
@@ -40,6 +41,8 @@ int main()
 	//std::cout << find_unique::FindUnique(find_unique::my_list, 5) << std::endl;
 
 	//arbitrage::HasPositivePnL(arbitrage::arr, 5);
+
+	//max_drawdown::MaxDrawdown(max_drawdown::arr, 6);
 
 	return EXIT_SUCCESS;
 }
