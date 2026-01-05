@@ -9,6 +9,7 @@
 #include "find_unique.h"
 #include "detect_arbitrage.h"
 #include "max_drawdown.h"
+#include "singleton.h"
 
 int main()
 {
@@ -43,6 +44,11 @@ int main()
 	//arbitrage::HasPositivePnL(arbitrage::arr, 5);
 
 	//max_drawdown::MaxDrawdown(max_drawdown::arr, 6);
+
+	singleton::Singleton& my_singleton = singleton::Singleton::GetInstance();
+
+	my_singleton.DoSomething();
+
 
 	return EXIT_SUCCESS;
 }

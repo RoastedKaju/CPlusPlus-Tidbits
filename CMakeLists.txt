@@ -17,4 +17,5 @@ add_executable(${PROJECT_NAME}
     "src/implement_memmove.h"
     "src/find_unique.h"
     "src/detect_arbitrage.h"
-    "src/max_drawdown.h")
+    "src/max_drawdown.h"
+    "src/singleton.h")
