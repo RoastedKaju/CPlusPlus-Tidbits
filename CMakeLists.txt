@@ -1,11 +1,9 @@
 cmake_minimum_required(VERSION 3.24)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(CppTidbits CXX)
-
-set(CMAKE_CXX_CLANG_FORMAT "clang-format;-style=Google")
 
 add_executable(${PROJECT_NAME}
     "src/main.cpp"
@@ -18,4 +16,5 @@ add_executable(${PROJECT_NAME}
     "src/find_unique.h"
     "src/detect_arbitrage.h"
     "src/max_drawdown.h"
-    "src/singleton.h")
+    "src/singleton.h"
+    "src/crtp_polymorphism.h")

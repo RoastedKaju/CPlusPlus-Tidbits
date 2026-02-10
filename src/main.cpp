@@ -10,6 +10,7 @@
 #include "detect_arbitrage.h"
 #include "max_drawdown.h"
 #include "singleton.h"
+#include "crtp_polymorphism.h"
 
 int main()
 {
@@ -45,10 +46,15 @@ int main()
 
 	//max_drawdown::MaxDrawdown(max_drawdown::arr, 6);
 
-	singleton::Singleton& my_singleton = singleton::Singleton::GetInstance();
+	//singleton::Singleton& my_singleton = singleton::Singleton::GetInstance();
 
-	my_singleton.DoSomething();
+	//my_singleton.DoSomething();
 
+	//std::unique_ptr<crtp_poly::Shape> circle = std::make_unique<crtp_poly::Circle>(2.0f);
+	//std::cout << circle->area() << std::endl;
+
+	//std::unique_ptr<crtp_poly::ShapeCRTP<crtp_poly::CircleCRTP>> circleCompilePoly = std::make_unique<crtp_poly::CircleCRTP>(2.0f);
+	//std::cout << circleCompilePoly->area() << std::endl;
 
 	return EXIT_SUCCESS;
 }
