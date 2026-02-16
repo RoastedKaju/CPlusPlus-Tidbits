@@ -11,6 +11,7 @@
 #include "max_drawdown.h"
 #include "singleton.h"
 #include "crtp_polymorphism.h"
+#include "function_binding.h"
 
 int main()
 {
@@ -55,6 +56,8 @@ int main()
 
 	//std::unique_ptr<crtp_poly::ShapeCRTP<crtp_poly::CircleCRTP>> circleCompilePoly = std::make_unique<crtp_poly::CircleCRTP>(2.0f);
 	//std::cout << circleCompilePoly->area() << std::endl;
+
+	fb::functionBindingExamples();
 
 	return EXIT_SUCCESS;
 }

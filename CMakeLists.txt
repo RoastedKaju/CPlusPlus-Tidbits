@@ -17,4 +17,5 @@ add_executable(${PROJECT_NAME}
     "src/detect_arbitrage.h"
     "src/max_drawdown.h"
     "src/singleton.h"
-    "src/crtp_polymorphism.h")
+    "src/crtp_polymorphism.h"
+    "src/function_binding.h")
