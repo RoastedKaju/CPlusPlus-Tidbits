@@ -12,6 +12,7 @@
 #include "singleton.h"
 #include "crtp_polymorphism.h"
 #include "function_binding.h"
+import CustomMath;
 
 int main()
 {
@@ -57,7 +58,9 @@ int main()
 	//std::unique_ptr<crtp_poly::ShapeCRTP<crtp_poly::CircleCRTP>> circleCompilePoly = std::make_unique<crtp_poly::CircleCRTP>(2.0f);
 	//std::cout << circleCompilePoly->area() << std::endl;
 
-	fb::functionBindingExamples();
+	//fb::functionBindingExamples();
+
+	std::cout << add(10, 5) << std::endl;
 
 	return EXIT_SUCCESS;
 }

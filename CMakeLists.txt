@@ -18,4 +18,5 @@ add_executable(${PROJECT_NAME}
     "src/max_drawdown.h"
     "src/singleton.h"
     "src/crtp_polymorphism.h"
-    "src/function_binding.h")
+    "src/function_binding.h"
+    "src/modules.ixx" "src/modules.cpp")
