@@ -13,6 +13,7 @@
 #include "crtp_polymorphism.h"
 #include "function_binding.h"
 import CustomMath;
+#include "concepts.h"
 
 int main()
 {
@@ -60,7 +61,9 @@ int main()
 
 	//fb::functionBindingExamples();
 
-	std::cout << add(10, 5) << std::endl;
+	//std::cout << add(10, 5) << std::endl;
+
+	conceptsExample();
 
 	return EXIT_SUCCESS;
 }
