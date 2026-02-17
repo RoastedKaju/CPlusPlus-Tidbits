@@ -4,6 +4,8 @@
 #include <concepts>
 #include <iostream>
 #include <cmath>
+#include <memory>
+#include <vector>
 
 ///
 /// A concept is just a true of false statement, it is like a predicate that returns true or false
@@ -84,6 +86,35 @@ void PrintDoubleAutoVer(IsDouble auto value)
 	std::cout << value << std::endl;
 }
 
+// Another example, lets make a concept for small data (size less than 8 bytes) and a fallback for big data
+template<typename T>
+concept SmallDataExpression = sizeof(T) <= 8; // Size is present during compile time
+
+// Use our concepts
+template <typename T> requires SmallDataExpression<T>
+void PrintData(T value)
+{
+	std::cout << "The size of our small data is: " << sizeof(value) << std::endl;
+}
+
+// Make one for big data that takes in the value via const reference
+template<typename T>
+concept BigDataExpression = !SmallDataExpression<T>; // Just NOT the small data predicate
+
+// This is kinda like SFINAE where if one template overload fails to do something have another
+template<typename T> requires BigDataExpression<T>
+void PrintData(const T& value)
+{
+	std::cout << "The size of our big data is: " << sizeof(value) << std::endl;
+}
+
+// Or you could have done just this
+template<typename T> requires (!SmallDataExpression<T>) // Requires need an expression so enclose it in braces
+void PrintBigData()
+{
+	// Print data size
+}
+
 void conceptsExample()
 {
 	printValue(5);
@@ -104,4 +135,14 @@ void conceptsExample()
 
 	// Custom double concept
 	PrintDoubleAutoVer(1000.0);
+
+	PrintData(23);
+	{
+		std::unique_ptr<int> somePtr; // Should be 8 bytes
+		PrintData(std::move(somePtr));
+	}
+	std::vector<int> someVec = {1, 3, 4, 5, 6};
+	PrintData(someVec); // The size of vector is 32 bytes, doesn't matter how many elements it has
+	// The big data one will use the 2nd overload with const reference
+
 }
