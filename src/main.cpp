@@ -14,6 +14,7 @@
 #include "function_binding.h"
 import CustomMath;
 #include "concepts.h"
+#include "variadic_templates.h"
 
 int main()
 {
@@ -63,7 +64,9 @@ int main()
 
 	//std::cout << add(10, 5) << std::endl;
 
-	conceptsExample();
+	//conceptsExample();
+
+	variadic::variadicExample();
 
 	return EXIT_SUCCESS;
 }
