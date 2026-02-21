@@ -15,6 +15,7 @@
 import CustomMath;
 #include "concepts.h"
 #include "variadic_templates.h"
+#include "perfect_forwarding.h"
 
 int main()
 {
@@ -66,7 +67,9 @@ int main()
 
 	//conceptsExample();
 
-	variadic::variadicExample();
+	//variadic::variadicExample();
+
+	perfect_forwarding::perfectForwardingExample();
 
 	return EXIT_SUCCESS;
 }
