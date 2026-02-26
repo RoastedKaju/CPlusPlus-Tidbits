@@ -22,4 +22,5 @@ add_executable(${PROJECT_NAME}
     "src/modules.ixx" "src/modules.cpp"
     "src/concepts.h"
     "src/variadic_templates.h"
-    "src/perfect_forwarding.h")
+    "src/perfect_forwarding.h"
+    "src/file_stream.h")
