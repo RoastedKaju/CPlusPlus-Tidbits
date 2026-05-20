@@ -17,6 +17,7 @@ import CustomMath;
 #include "variadic_templates.h"
 #include "perfect_forwarding.h"
 #include "file_stream.h"
+#include "single_producer_consumer.h"
 
 int main()
 {
@@ -72,7 +73,9 @@ int main()
 
 	//perfect_forwarding::perfectForwardingExample();
 
-	return fs::fileStreamExample();
+	// return fs::fileStreamExample();
 
+	single_producer_consumer::runSingleProducerConsumerExample();
+	
 	return EXIT_SUCCESS;
 }
