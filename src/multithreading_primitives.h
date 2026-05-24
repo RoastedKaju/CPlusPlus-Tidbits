@@ -91,17 +91,58 @@ namespace multithreading_primitives
         }
     }
 
+    void foo(std::mutex &mutex, std::condition_variable &cv, bool &fooPrinted)
+    {
+        for (size_t i = 0; i < 100; ++i)
+        {
+            std::unique_lock<std::mutex> lock(mutex);
+            cv.wait(lock, [&fooPrinted]()
+                    { return !fooPrinted; });
+            std::cout << "Foo\n";
+            fooPrinted = true;
+            cv.notify_all();
+        }
+    }
+
+    void bar(std::mutex &mutex, std::condition_variable &cv, bool &fooPrinted)
+    {
+        for (size_t i = 0; i < 100; ++i)
+        {
+            std::unique_lock<std::mutex> lock(mutex);
+            cv.wait(lock, [&fooPrinted]()
+                    { return fooPrinted; });
+            std::cout << "Bar\n";
+            fooPrinted = false;
+            cv.notify_all();
+        }
+    }
+
+    void multiThreadFooBar()
+    {
+        std::mutex mtx;
+        std::condition_variable cv;
+        bool fooPrinted = false;
+        std::thread fooThread(&foo, std::ref(mtx), std::ref(cv), std::ref(fooPrinted));
+        std::thread barThread(&bar, std::ref(mtx), std::ref(cv), std::ref(fooPrinted));
+
+        fooThread.join();
+        barThread.join();
+    }
+
     void exampleDriver()
     {
         // Example 1
-        std::cout << "Hardware threads " << std::thread::hardware_concurrency() << std::endl;
-        std::cout << "Main thread ID " << std::this_thread::get_id() << std::endl;
+        // std::cout << "Hardware threads " << std::thread::hardware_concurrency() << std::endl;
+        // std::cout << "Main thread ID " << std::this_thread::get_id() << std::endl;
 
-        std::thread t1(&helloThread);
-        t1.join();
+        // std::thread t1(&helloThread);
+        // t1.join();
 
         // Example 2
-        simulateDNSexample();
+        // simulateDNSexample();
+
+        // Example 3 Foo-Bar
+        multiThreadFooBar();
     }
 }
 
