@@ -24,4 +24,5 @@ add_executable(${PROJECT_NAME}
     "src/variadic_templates.h"
     "src/perfect_forwarding.h"
     "src/file_stream.h"
-    "src/single_producer_consumer.h")
+    "src/single_producer_consumer.h"
+    "src/multithreading_primitives.h")

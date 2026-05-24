@@ -18,6 +18,7 @@ import CustomMath;
 #include "perfect_forwarding.h"
 #include "file_stream.h"
 #include "single_producer_consumer.h"
+#include "multithreading_primitives.h"
 
 int main()
 {
@@ -75,7 +76,9 @@ int main()
 
 	// return fs::fileStreamExample();
 
-	single_producer_consumer::runSingleProducerConsumerExample();
+	// single_producer_consumer::runSingleProducerConsumerExample();
+
+	multithreading_primitives::exampleDriver();
 	
 	return EXIT_SUCCESS;
 }

@@ -10,6 +10,16 @@
 #include <chrono>
 #include <atomic>
 
+/**
+* To speed things up, both the compiler and the CPU cache reorder instructions.
+* Imagine your Producer writes data to the queue, and then updates the tail pointer to let the Consumer know new data is ready.
+* If the CPU reorders those operations, the tail pointer might update before the actual data is written to memory.
+* To fix this, we use memory orders to draw "lines in the sand" that the CPU and compiler are not allowed to cross.
+* Relaxed: Just make sure this atomic operation is safe from data races. Otherwise, I don't care about ordering. Reorder anything around it.
+* Release: Publish everything I did before this point. No stores (writes) written before this line can be reordered after it.
+* Acquire: Bring me the latest data. No loads (reads) after this line can be reordered before it.
+**/
+
 namespace single_producer_consumer
 {
     template <typename T, size_t Size>
