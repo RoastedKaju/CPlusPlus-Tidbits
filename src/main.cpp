@@ -20,6 +20,7 @@ import CustomMath;
 #include "single_producer_consumer.h"
 #include "multithreading_primitives.h"
 #include "graphs.h"
+#include "entity_components.h"
 
 int main()
 {
@@ -81,7 +82,7 @@ int main()
 
 	// multithreading_primitives::exampleDriver();
 
-	graphs::graphsExampleDriver();
+	ecs::driver_function();
 	
 	return EXIT_SUCCESS;
 }
