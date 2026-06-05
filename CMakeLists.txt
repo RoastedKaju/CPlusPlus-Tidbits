@@ -25,4 +25,5 @@ add_executable(${PROJECT_NAME}
     "src/perfect_forwarding.h"
     "src/file_stream.h"
     "src/single_producer_consumer.h"
-    "src/multithreading_primitives.h")
+    "src/multithreading_primitives.h"
+    "src/graphs.h")

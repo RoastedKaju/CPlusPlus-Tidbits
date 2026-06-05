@@ -19,6 +19,7 @@ import CustomMath;
 #include "file_stream.h"
 #include "single_producer_consumer.h"
 #include "multithreading_primitives.h"
+#include "graphs.h"
 
 int main()
 {
@@ -78,7 +79,9 @@ int main()
 
 	// single_producer_consumer::runSingleProducerConsumerExample();
 
-	multithreading_primitives::exampleDriver();
+	// multithreading_primitives::exampleDriver();
+
+	graphs::graphsExampleDriver();
 	
 	return EXIT_SUCCESS;
 }

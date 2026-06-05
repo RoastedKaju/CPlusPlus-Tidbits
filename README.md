@@ -12,3 +12,12 @@ The Current topics that are covered in this repository are:
 - Example code that overloads the Post and Pre Increment operators
 - A function that matches sub-string pattern using only pointer arithmetic
 - A function that reverse string using only pointer arithmetic
+- Function binding examples with `std::bind` and lambdas
+- CRTP (Curiously Recurring Template Pattern) example.
+- Simple File streaming code.
+- C++ 20 Concepts sample code.
+- Modules example.
+- SPSC (Single Producer, Single Consumer) Queue
+- Multithreading Primitives Examples
+- Scott Myer's thread safe singleton.
+- Simple Variadic Template Example code.
