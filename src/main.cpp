@@ -21,6 +21,7 @@ import CustomMath;
 #include "multithreading_primitives.h"
 #include "graphs.h"
 #include "entity_components.h"
+#include "sparse_set.h"
 
 int main()
 {
@@ -82,7 +83,9 @@ int main()
 
 	// multithreading_primitives::exampleDriver();
 
-	ecs::driver_function();
+	// ecs::driver_function();
+
+	sparse::driver();
 	
 	return EXIT_SUCCESS;
 }

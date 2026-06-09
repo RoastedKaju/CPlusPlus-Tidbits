@@ -27,4 +27,5 @@ add_executable(${PROJECT_NAME}
     "src/single_producer_consumer.h"
     "src/multithreading_primitives.h"
     "src/graphs.h"
-    "src/entity_components.h")
+    "src/entity_components.h"
+    "src/sparse_set.h")
