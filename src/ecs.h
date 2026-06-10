@@ -64,6 +64,7 @@ namespace ecs
     {
         virtual ~IStorage() = default;
         virtual void *Get(size_t index) = 0;
+        virtual void Destroy(size_t index) = 0;
     };
 
     template <typename T>
@@ -95,6 +96,13 @@ namespace ecs
         {
             return static_cast<char *>(data) + index * elementSize;
         }
+
+        void Destroy(size_t index) override
+        {
+            // gets the pointer to this component's memory location
+            T *component = static_cast<T *>(Get(index));
+            component->~T();
+        }
     };
 
     // Acts as an entity manager
@@ -103,25 +111,103 @@ namespace ecs
     // handles storage
     struct Scene
     {
+        // All the information about entity
+        // minus the entity index as the entity index will map 1-1 directly with our entities vector
+        struct EntityDesc
+        {
+            EntityGeneration generation{0};
+            ComponentMask mask{};
+            bool alive{false};
+        };
 
+        // tracking lists
+        std::vector<EntityDesc> entities;
+        std::vector<EntityIndex> freeIndices;
+        std::vector<std::unique_ptr<IStorage>> componentPools;
+
+        bool IsAlive(EntityID id) const
+        {
+            EntityIndex index = GetEntityIndex(id);
+
+            if (index >= entities.size())
+            {
+                return false;
+            }
+
+            const auto &entityDesc = entities[index];
+
+            return entityDesc.alive && entityDesc.generation == GetEntityGeneration(id);
+        }
+
+        EntityID CreateEntity()
+        {
+            EntityIndex index;
+
+            // check if we can reuse some slot
+            if (!freeIndices.empty())
+            {
+                index = freeIndices.back();
+                freeIndices.pop_back();
+            }
+            else
+            {
+                assert(entities.size() < MAX_ENTITY_COUNT && "Cannot create more entities than max entity count.");
+
+                index = static_cast<EntityIndex>(entities.size());
+                entities.emplace_back(EntityDesc{});
+            }
+
+            auto &entityDesc = entities[index];
+            entityDesc.alive = true;
+
+            return CreateEntityID(index, entityDesc.generation);
+        }
+
+        void DestroyEntity(EntityID id)
+        {
+            if (!IsAlive(id))
+            {
+                return;
+            }
+
+            EntityIndex index = GetEntityIndex(id);
+            auto &entityDesc = entities[index];
+
+            // clean up all the components attached to this entity
+            for (size_t i = 0; i < componentPools.size(); ++i)
+            {
+                if (entityDesc.mask.test(i))
+                {
+                    componentPools[i]->Destroy(index);
+                }
+            }
+
+            // reset component mask
+            entityDesc.mask.reset();
+
+            // bump up the generation counter
+            entityDesc.alive = false;
+            ++entityDesc.generation;
+
+            // add to free list
+            freeIndices.push_back(index);
+        }
+
+        // Add component to entity
+
+        // Remove component from entity
     };
 
     void driver()
     {
-        EntityID entity = CreateEntityID(0, 1);
-        EntityID anotherEntity = CreateEntityID(2, 5);
+        Scene scene{};
 
-        PoolStorage<TransformComponent> transformPool{};
+        scene.CreateEntity();
+        scene.CreateEntity();
+        scene.CreateEntity();
 
-        // get the memory pointer at index
-        void *memory = transformPool.Get(GetEntityIndex(entity));
-        // construct in-place the component
-        new (memory) TransformComponent();
+        // scene.DestroyEntity(1);
 
-        // Check if the component has been created in pool
-        auto *comp = static_cast<TransformComponent *>(memory);
-        comp->debugName = "Transform";
-
-        std::cout << comp->debugName << std::endl;
+        std::cout << scene.freeIndices.size() << std::endl;
     }
 }

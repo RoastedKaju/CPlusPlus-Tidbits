@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(CppTidbits CXX)
 
-add_executable(${PROJECT_NAME}
+add_executable(${PROJECT_NAME} 
     "src/main.cpp"
     "src/beeper.h"
     "src/increment_overload.h"
@@ -27,5 +27,5 @@ add_executable(${PROJECT_NAME}
     "src/single_producer_consumer.h"
     "src/multithreading_primitives.h"
     "src/graphs.h"
-    "src/entity_components.h"
+    "src/ecs.h"
     "src/sparse_set.h")
