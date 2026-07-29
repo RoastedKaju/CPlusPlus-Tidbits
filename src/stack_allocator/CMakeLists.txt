@@ -1,0 +1,1 @@
+add_executable(StackAllocator "${CMAKE_CURRENT_SOURCE_DIR}/stack_allocator.cpp")

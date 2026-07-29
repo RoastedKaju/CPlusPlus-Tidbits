@@ -1,0 +1,1 @@
+add_executable(ArenaAllocator "${CMAKE_CURRENT_SOURCE_DIR}/arena_allocator.cpp")

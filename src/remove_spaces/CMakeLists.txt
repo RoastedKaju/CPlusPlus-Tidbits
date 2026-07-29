@@ -1,0 +1,1 @@
+add_executable(RemoveSpaces "${CMAKE_CURRENT_SOURCE_DIR}/remove_spaces.cpp")

@@ -1,0 +1,1 @@
+add_executable(FileStreaming "${CMAKE_CURRENT_SOURCE_DIR}/file_streaming.cpp")

@@ -1,31 +1,25 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 4.0)
+project(Tidbits)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(CppTidbits CXX)
-
-add_executable(${PROJECT_NAME} 
-    "src/main.cpp"
-    "src/beeper.h"
-    "src/increment_overload.h"
-    "src/pattern_match.h"
-    "src/reverse_string.h"
-    "src/remove_spaces.h"
-    "src/implement_memmove.h"
-    "src/find_unique.h"
-    "src/detect_arbitrage.h"
-    "src/max_drawdown.h"
-    "src/singleton.h"
-    "src/crtp_polymorphism.h"
-    "src/function_binding.h"
-    "src/modules.ixx" "src/modules.cpp"
-    "src/concepts.h"
-    "src/variadic_templates.h"
-    "src/perfect_forwarding.h"
-    "src/file_stream.h"
-    "src/single_producer_consumer.h"
-    "src/multithreading_primitives.h"
-    "src/graphs.h"
-    "src/ecs.h"
-    "src/sparse_set.h")
+add_subdirectory(src/beeper)
+add_subdirectory(src/concepts)
+add_subdirectory(src/crtp)
+add_subdirectory(src/arbitrage)
+add_subdirectory(src/stack_allocator)
+add_subdirectory(src/double_ended_stack_allocator)
+add_subdirectory(src/pool_allocator)
+add_subdirectory(src/arena_allocator)
+add_subdirectory(src/file_streaming)
+add_subdirectory(src/lambda)
+add_subdirectory(src/ecs)
+add_subdirectory(src/overload)
+add_subdirectory(src/memmove)
+add_subdirectory(src/find_unique)
+add_subdirectory(src/modules)
+add_subdirectory(src/pattern_match)
+add_subdirectory(src/remove_spaces)
+add_subdirectory(src/reverse_string)
+add_subdirectory(src/singleton)

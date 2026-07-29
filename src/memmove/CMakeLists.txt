@@ -1,0 +1,1 @@
+add_executable(MemMove "${CMAKE_CURRENT_SOURCE_DIR}/memmove.cpp")

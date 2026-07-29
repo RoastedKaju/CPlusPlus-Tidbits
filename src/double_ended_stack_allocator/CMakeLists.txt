@@ -1,0 +1,1 @@
+add_executable(DoubleEndedStackAllocator "${CMAKE_CURRENT_SOURCE_DIR}/double_ended_stack_allocator.cpp")

@@ -1,0 +1,1 @@
+add_executable(PoolAllocator "${CMAKE_CURRENT_SOURCE_DIR}/pool_allocator.cpp")

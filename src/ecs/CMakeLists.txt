@@ -1,0 +1,1 @@
+add_executable(ECS "${CMAKE_CURRENT_SOURCE_DIR}/ecs.cpp")

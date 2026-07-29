@@ -1,0 +1,1 @@
+add_executable(PatternMatch "${CMAKE_CURRENT_SOURCE_DIR}/pattern_match.cpp")

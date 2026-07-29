@@ -1,0 +1,1 @@
+add_executable(Lambda "${CMAKE_CURRENT_SOURCE_DIR}/lambda.cpp")
