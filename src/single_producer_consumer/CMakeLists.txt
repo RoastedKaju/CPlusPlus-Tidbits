@@ -1,0 +1,1 @@
+add_executable(SingleProducerConsumer "${CMAKE_CURRENT_SOURCE_DIR}/single_producer_consumer.cpp")
