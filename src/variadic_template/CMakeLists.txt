@@ -1,0 +1,1 @@
+add_executable(VariadicTemplate "${CMAKE_CURRENT_SOURCE_DIR}/variadic_template.cpp")

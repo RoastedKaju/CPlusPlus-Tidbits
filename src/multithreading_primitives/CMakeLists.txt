@@ -1,0 +1,1 @@
+add_executable(MultithreadingPrimitives "${CMAKE_CURRENT_SOURCE_DIR}/multithreading_primitives.cpp")

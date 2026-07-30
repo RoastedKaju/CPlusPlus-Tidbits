@@ -1,0 +1,1 @@
+add_executable(PerfectForwarding "${CMAKE_CURRENT_SOURCE_DIR}/perfect_forwarding.cpp")
