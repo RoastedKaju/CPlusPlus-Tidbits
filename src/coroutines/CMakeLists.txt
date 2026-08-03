@@ -1,0 +1,1 @@
+add_executable(Coroutines "${CMAKE_CURRENT_SOURCE_DIR}/coroutines.cpp")
